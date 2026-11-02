@@ -153,7 +153,6 @@ const PROJECTS = [
       { heading: "How", image: "images/projects/wind-tunnel-mesh/2.jpg", points: [
         "Tested in an ELD 402B low-speed wind tunnel at 21.7 and 30.2 m/s (Re ≈ 1.5×10⁵ and 2.0×10⁵), measuring drag with an LVDT dynamometer and subtracting the mounting-hardware drag from every run",
         "Each model was double-nutted onto a fixed sting so its center sat at the same point in the test section every run; air density was recomputed each session from barometer and thermometer readings",
-        "Owned the data processing and results analysis",
       ]},
       { heading: "Results", image: "images/projects/wind-tunnel-mesh/3.jpg", points: [
         "Found a sharp threshold: the drag coefficient fell more than 50% between 0.2 mm and 0.4 mm deviation at both speeds (~0.4 → ~0.07)",
@@ -180,8 +179,11 @@ const PROJECTS = [
         "Investigated whether breaking heat sink fins into segments interrupts thermal boundary-layer growth and improves cooling, which matters for high power density systems like EV battery packs and data centers",
         "Compared three Aluminum 6061 fin arrays with the same 2\" square footprint: continuous, 1 mm breaks, and 7.238 mm breaks",
       ]},
+      { heading: "How", image: "images/projects/fin-heat-sink/cam.gif", points: [
+        "Programmed the toolpaths in CAM, then machined all three fin arrays on a CNC mill",
+      ]},
       { heading: "How", image: "images/projects/fin-heat-sink/2.jpg", points: [
-        "CNC milled all three fin arrays, cutting the 1 mm breaks on a bandsaw",
+        "Cut the 1 mm breaks on a bandsaw to finish the segmented arrays",
       ]},
       { heading: "How", image: "images/projects/fin-heat-sink/6.jpg", points: [
         "CFD in SolidWorks Flow Simulation showed the outer fin rows see very different airflow than the interior ones",
