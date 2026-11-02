@@ -74,7 +74,7 @@ const EDUCATION = {
   school: "Purdue University",
   logo: "images/purdue.png",
   degree: "B.S. Mechanical Engineering",
-  dates: "2022 – 2026",
+  dates: "2022 – 2027",
 };
 
 // Order here = order on the Projects page. `featured: true` also shows it on the home page.
@@ -132,6 +132,71 @@ const PROJECTS = [
         "Arm adaptor can securely fit on 98% of adult forearms",
         "Arm mounted 18690 battery module enables quick swap / continuous usage",
         "Formlabs materials offer advanced properties but design is replicable using FDM materials",
+      ]},
+    ],
+  },
+  {
+    id: "wind-tunnel-mesh",
+    title: "3D Print Mesh Resolution vs. Aerodynamic Drag",
+    category: "Personal",
+    org: "Purdue ME 308",
+    cover: "images/wind-tunnel-mesh.jpg",
+    blurb: "Wind tunnel study finding how far an STL can be simplified before measured drag stops being trustworthy.",
+    tags: ["Wind Tunnel", "3D Printing", "Data Analysis", "CFD"],
+    featured: false,
+    sections: [
+      { heading: "What", image: "images/projects/wind-tunnel-mesh/1.jpg", points: [
+        "3D-printed wind tunnel models start as STL files that approximate curves with flat facets, and people often simplify them to save print time, but there is no clear guideline for when that starts to corrupt drag measurements",
+        "Tested a 4.00\" spheroid printed at 8 mesh resolutions (390,240 down to 56 facets, 0.1–6.4 mm max surface deviation), plus a detailed cat model at 3 resolutions to see if the trend carries over to complex shapes",
+      ]},
+      { heading: "How", image: "images/projects/wind-tunnel-mesh/2.jpg", points: [
+        "Printed all 11 models in PLA with identical slicer settings and no post-processing, so mesh resolution was the only variable",
+      ]},
+      { heading: "How", image: "images/projects/wind-tunnel-mesh/3.jpg", points: [
+        "Tested in an ELD 402B low-speed wind tunnel at 21.7 and 30.2 m/s (Re ≈ 1.5×10⁵ and 2.0×10⁵), measuring drag with an LVDT dynamometer and subtracting the mounting-hardware drag from every run",
+        "Each model was double-nutted onto a fixed sting so its center sat at the same point in the test section every run; air density was recomputed each session from barometer and thermometer readings",
+        "Owned the data processing and results analysis, and used SolidWorks Flow Simulation as a cross-check",
+      ]},
+      { heading: "Results", image: "images/projects/wind-tunnel-mesh/4.jpg", points: [
+        "Found a sharp threshold: the drag coefficient fell more than 50% between 0.2 mm and 0.4 mm deviation at both speeds (~0.4 → ~0.07)",
+        "Attributed to a roughness-induced early drag crisis: the facets trip the boundary layer to turbulence and delay separation, the same effect as dimples on a golf ball",
+      ]},
+      { heading: "Results", image: "images/projects/wind-tunnel-mesh/5.jpg", points: [
+        "The cat model showed no sharp drop, only a gradual 4.5–8.3% rise in drag coefficient as the mesh got coarser",
+        "Takeaway: acceptable STL simplification depends on geometry. Smooth bluff bodies tolerate it up to a sharp cutoff, while feature-rich parts need higher resolution",
+      ]},
+    ],
+  },
+  {
+    id: "fin-heat-sink",
+    title: "Continuous vs. Segmented Fin Heat Sinks",
+    category: "Personal",
+    org: "Purdue ME 315",
+    cover: "images/fin-heat-sink.jpg",
+    blurb: "Machined and tested three aluminum fin arrays. 1 mm fin breaks cut thermal resistance to less than half that of continuous fins.",
+    tags: ["Heat Transfer", "CNC Machining", "Instrumentation", "CFD"],
+    featured: false,
+    sections: [
+      { heading: "What", image: "images/projects/fin-heat-sink/1.jpg", points: [
+        "Investigated whether breaking heat sink fins into segments interrupts thermal boundary-layer growth and improves cooling, which matters for high power density systems like EV battery packs and data centers",
+        "Compared three Aluminum 6061 fin arrays with the same 2\" square footprint: continuous, 1 mm breaks, and 7.238 mm breaks",
+      ]},
+      { heading: "How", image: "images/projects/fin-heat-sink/2.jpg", points: [
+        "CNC milled all three fin arrays, cutting the 1 mm breaks on a bandsaw",
+        "Added an extra row of fins on each side so the measured middle fins saw the same airflow as interior channels, which was confirmed with CFD",
+      ]},
+      { heading: "How", image: "images/projects/fin-heat-sink/3.jpg", points: [
+        "A 40 W pad heater (114 V across 325 Ω) was bonded to the base with thermal paste and housed in a foam insulation block",
+        "8 team-built K-type thermocouples at each fin's base and tip, calibrated in an ice-point bath; tip thermocouples were held with Kapton tape for an adiabatic-tip assumption",
+      ]},
+      { heading: "How", image: "images/projects/fin-heat-sink/4.jpg", points: [
+        "A blower box provided 6 m/s airflow (calibrated with an anemometer), and temperatures were logged through a National Instruments DAQ and LabVIEW until steady state (< 0.5 °C change over 5 min)",
+        "Thermal resistance was derived from the base and tip temperatures with standard fin equations, with thermocouple contact resistance characterized and compensated",
+      ]},
+      { heading: "Results", image: "images/projects/fin-heat-sink/5.jpg", points: [
+        "The 1 mm break performed best: 1.61 ± 0.20 K/W vs. 3.53 ± 0.96 K/W for the continuous fin (h = 81 vs. 49 W/m²K); the 7.238 mm break measured 2.46 ± 0.32 K/W",
+        "Ideal CFD predicted the opposite (continuous best). The gap was traced to thermal paste bridging the 1 mm breaks and the rougher machined surfaces, and a CFD model with the paste bridge reproduced the trend",
+        "Takeaway: continuous fins win in theory, but rough surfaces and a conduction path across segments can significantly improve real-world performance",
       ]},
     ],
   },
