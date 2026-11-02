@@ -49,7 +49,7 @@ function renderHome() {
   $("#hero").innerHTML = `
     <div class="hero-text">
       <p class="eyebrow">${SITE.tagline}</p>
-      <h1>Hi, I'm ${SITE.name.split(" ")[0]}.</h1>
+      <h1>${SITE.greeting}</h1>
       <p class="lead">${SITE.intro}</p>
       <div class="hero-actions">
         <a href="projects.html" class="btn">See my projects</a>

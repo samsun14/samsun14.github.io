@@ -7,7 +7,8 @@
 const SITE = {
   name: "Sam Sun",
   tagline: "Mechanical Engineering Portfolio",
-  intro: "4th year Mechanical Engineering student at Purdue University. I design cost-effective products that positively impact the lives of many — from production equipment to accessible devices.",
+  greeting: "Hi I'm Sam!",
+  intro: "I'm a 4th year Mechanical Engineering Student at Purdue University. I am passionate about designing cost-effective products to positively impact the lives of many.",
   email: "samuelsun2003@gmail.com",
   linkedin: "https://www.linkedin.com/in/qiancheng-sun/",
   resume: "resume.pdf",
@@ -35,7 +36,7 @@ const EXPERIENCE = [
     role: "Mac Product Design EPM",
     dates: "May – Aug 2026",
     image: "images/experience/apple-mbp-proled-xdr.png",
-    summary: "Worked on the latest MacBook Pro with the PROLED XDR display.",
+    summary: "MacBook Pro PROLED XDR (OLED with Touch)",
     readMore: "",
   },
   {
@@ -110,7 +111,7 @@ const PROJECTS = [
   {
     id: "prosthetic-hand",
     title: "Accessible 3D Printed Prosthetic Hand",
-    category: "Hackathon",
+    category: "Personal",
     org: "Formlabs Hackathon",
     cover: "images/prosthetic-hand.jpg",
     blurb: "Fully 3D printable hand under $100 BOM — a temporary DIY option for wrist-down amputations.",
@@ -187,7 +188,7 @@ const PROJECTS = [
   {
     id: "smart-trash-can",
     title: "Computer Vision Smart Trash Can",
-    category: "Hackathon",
+    category: "Personal",
     org: "MAKEMIT",
     cover: "images/smart-trash-can.png",
     blurb: "Sorts recyclables automatically with 90% accuracy. 2nd place at MAKEMIT, built in 30 hours.",
@@ -214,7 +215,7 @@ const PROJECTS = [
   {
     id: "cane-to-chair",
     title: "Convertible Cane-to-Chair",
-    category: "Personal & Academic",
+    category: "Personal",
     org: "",
     cover: "images/cane-to-chair.png",
     blurb: "Cane that unfolds into a 180 lb-rated seat in under 10 seconds for users with limited stamina.",
@@ -243,7 +244,7 @@ const PROJECTS = [
   {
     id: "skateboard-guards",
     title: "Electric Skateboard Wheel Guards",
-    category: "Personal & Academic",
+    category: "Personal",
     org: "",
     cover: "images/skateboard-guards.jpg",
     blurb: "Quick-attach splash guards — ride through 2 in. of water at 15 mph and stay dry.",
