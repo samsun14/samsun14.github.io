@@ -15,6 +15,8 @@ const SITE = {
 };
 
 // Newest first. Each job becomes one entry on the home-page timeline.
+//   logo:     colored logo shown in the row of companies
+//   mark:     small icon inside the timeline dot (defaults to logo)
 //   image:    photo shown in the entry ("" = empty placeholder slot)
 //   readMore: project id from PROJECTS below (e.g. "linear-rail-tester") or any URL ("" = no button)
 const EXPERIENCE = [
@@ -23,7 +25,7 @@ const EXPERIENCE = [
     logo: "images/tesla.png",
     role: "Interior Mechanical Design",
     dates: "Aug 2026 – Jan 2027",
-    image: "",
+    image: "images/experience/tesla-cybercab.png",
     summary: "",
     readMore: "",
   },
@@ -32,8 +34,8 @@ const EXPERIENCE = [
     logo: "images/apple.png",
     role: "Mac Product Design EPM",
     dates: "May – Aug 2026",
-    image: "images/experience/apple-macbook-pro.jpg",
-    summary: "Worked on the latest MacBook Pro with the OLED XDR display.",
+    image: "images/experience/apple-mbp-proled-xdr.png",
+    summary: "Worked on the latest MacBook Pro with the PROLED XDR display.",
     readMore: "",
   },
   {
@@ -41,7 +43,7 @@ const EXPERIENCE = [
     logo: "images/formlabs.png",
     role: "Manufacturing Design Engineering Intern",
     dates: "Jun – Aug 2025",
-    image: "",
+    image: "images/experience/formlabs.jpg",
     summary: "Designed, prototyped, and validated custom machines used for current and next-gen printer manufacturing.",
     readMore: "",
   },
@@ -51,16 +53,17 @@ const EXPERIENCE = [
     role: "Mechanical Engineering Intern",
     team: "Cell Manufacturing – Tabless 4680",
     dates: "Sep 2024 – May 2025",
-    image: "",
+    image: "images/experience/tesla-4680.jpg",
     summary: "Designed and implemented numerous production equipment improvements to improve KPIs and address safety incidents.",
     readMore: "",
   },
   {
     company: "Panasonic Energy North America",
-    logo: "images/panasonic.png",
+    logo: "images/panasonic-logo.png",
+    mark: "images/panasonic.png",
     role: "Equipment Engineering Intern",
     dates: "May – Aug 2024",
-    image: "",
+    image: "images/experience/panasonic-2170.png",
     summary: "Designed the mounting structure for a high-speed inline inspection system on the 2170 cell winders.",
     readMore: "",
   },

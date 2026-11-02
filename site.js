@@ -68,22 +68,33 @@ function renderHome() {
 
   const readMoreHref = (r) => (byId(r) ? `project.html?id=${r}` : r);
 
+  // Timeline: centered line, entries alternate left / right, dot = company mark
+  const entry = (id, mark, dates, title, sub, extra) => `
+    <article class="tl-item" ${id ? `id="${id}"` : ""}>
+      <div class="tl-marker"><img src="${mark}" alt=""></div>
+      <div class="tl-date">${dates}</div>
+      <div class="tl-card">${extra.photo || ""}
+        <div class="tl-body">
+          <p class="tl-date-inline">${dates}</p>
+          <h3>${title}</h3>
+          ${sub ? `<p class="tl-role">${sub}</p>` : ""}
+          ${extra.body || ""}
+        </div>
+      </div>
+    </article>`;
+
   $("#experience-list").innerHTML =
-    EXPERIENCE.map((job, i) => `
-      <article class="tl-item" id="job-${i}">
-        <p class="tl-dates">${job.dates}</p>
-        <h3>${job.company} <span>· ${job.role}</span></h3>
-        ${job.team ? `<p class="tl-team">${job.team}</p>` : ""}
-        ${job.image
+    EXPERIENCE.map((job, i) => entry(
+      `job-${i}`, job.mark || job.logo, job.dates, job.company,
+      job.role + (job.team ? ` · ${job.team}` : ""),
+      {
+        photo: job.image
           ? `<figure class="tl-photo"><img src="${job.image}" alt="${job.company}" loading="lazy"></figure>`
-          : `<figure class="tl-photo empty"><img src="${job.logo}" alt=""></figure>`}
-        ${job.summary ? `<p class="tl-summary">${job.summary}</p>` : ""}
-        ${job.readMore ? `<a href="${readMoreHref(job.readMore)}" class="btn btn-ghost tl-more">Read more →</a>` : ""}
-      </article>`).join("") + `
-      <article class="tl-item edu">
-        <p class="tl-dates">${EDUCATION.dates}</p>
-        <h3>${EDUCATION.school} <span>· ${EDUCATION.degree}</span></h3>
-      </article>`;
+          : `<figure class="tl-photo empty"><img src="${job.logo}" alt=""></figure>`,
+        body: (job.summary ? `<p class="tl-summary">${job.summary}</p>` : "") +
+          (job.readMore ? `<a href="${readMoreHref(job.readMore)}" class="tl-more">Read more →</a>` : ""),
+      })).join("") +
+    entry("", EDUCATION.logo, EDUCATION.dates, EDUCATION.school, EDUCATION.degree, {});
 
   $("#featured").innerHTML = PROJECTS.filter((p) => p.featured).map(projectCard).join("");
 }
