@@ -58,36 +58,31 @@ function renderHome() {
     </div>
     <img src="${SITE.photo}" alt="${SITE.name}" class="avatar">`;
 
+  // Logo row: one tile per company (first entry wins), clicking jumps to that entry
+  const seen = new Set();
+  $("#logo-row").innerHTML = EXPERIENCE.map((job, i) => {
+    if (seen.has(job.company)) return "";
+    seen.add(job.company);
+    return `<a href="#job-${i}" class="logo-tile" title="${job.company}"><img src="${job.logo}" alt="${job.company}"></a>`;
+  }).join("");
+
+  const readMoreHref = (r) => (byId(r) ? `project.html?id=${r}` : r);
+
   $("#experience-list").innerHTML =
-    EXPERIENCE.map((job) => `
-      <article class="job">
-        <div class="job-logo"><img src="${job.logo}" alt="${job.company}"></div>
-        <div class="job-body">
-          <div class="job-head">
-            <h3>${job.company}</h3>
-            <span class="job-dates">${job.dates}</span>
-          </div>
-          <p class="job-role">${job.role}${job.team ? ` <span>· ${job.team}</span>` : ""}</p>
-          <p class="job-summary">${job.summary}</p>
-          ${job.projects.length ? `
-            <div class="job-projects">
-              ${job.projects.map(byId).map((p) => `
-                <a href="project.html?id=${p.id}" class="mini">
-                  <img src="${p.cover}" alt="">
-                  <span>${p.title}</span>
-                </a>`).join("")}
-            </div>` : ""}
-        </div>
+    EXPERIENCE.map((job, i) => `
+      <article class="tl-item" id="job-${i}">
+        <p class="tl-dates">${job.dates}</p>
+        <h3>${job.company} <span>· ${job.role}</span></h3>
+        ${job.team ? `<p class="tl-team">${job.team}</p>` : ""}
+        ${job.image
+          ? `<figure class="tl-photo"><img src="${job.image}" alt="${job.company}" loading="lazy"></figure>`
+          : `<figure class="tl-photo empty"><img src="${job.logo}" alt=""></figure>`}
+        ${job.summary ? `<p class="tl-summary">${job.summary}</p>` : ""}
+        ${job.readMore ? `<a href="${readMoreHref(job.readMore)}" class="btn btn-ghost tl-more">Read more →</a>` : ""}
       </article>`).join("") + `
-      <article class="job edu">
-        <div class="job-logo"><img src="${EDUCATION.logo}" alt="${EDUCATION.school}"></div>
-        <div class="job-body">
-          <div class="job-head">
-            <h3>${EDUCATION.school}</h3>
-            <span class="job-dates">${EDUCATION.dates}</span>
-          </div>
-          <p class="job-role">${EDUCATION.degree}</p>
-        </div>
+      <article class="tl-item edu">
+        <p class="tl-dates">${EDUCATION.dates}</p>
+        <h3>${EDUCATION.school} <span>· ${EDUCATION.degree}</span></h3>
       </article>`;
 
   $("#featured").innerHTML = PROJECTS.filter((p) => p.featured).map(projectCard).join("");

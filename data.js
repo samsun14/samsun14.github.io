@@ -14,15 +14,36 @@ const SITE = {
   photo: "images/profile.png",
 };
 
-// Newest first. `projects` lists project ids (see PROJECTS below) shown under the job.
+// Newest first. Each job becomes one entry on the home-page timeline.
+//   image:    photo shown in the entry ("" = empty placeholder slot)
+//   readMore: project id from PROJECTS below (e.g. "linear-rail-tester") or any URL ("" = no button)
 const EXPERIENCE = [
+  {
+    company: "Tesla",
+    logo: "images/tesla.png",
+    role: "Interior Mechanical Design",
+    dates: "Aug 2026 – Jan 2027",
+    image: "",
+    summary: "",
+    readMore: "",
+  },
+  {
+    company: "Apple",
+    logo: "images/apple.png",
+    role: "Mac Product Design EPM",
+    dates: "May – Aug 2026",
+    image: "images/experience/apple-macbook-pro.jpg",
+    summary: "Worked on the latest MacBook Pro with the OLED XDR display.",
+    readMore: "",
+  },
   {
     company: "Formlabs",
     logo: "images/formlabs.png",
     role: "Manufacturing Design Engineering Intern",
     dates: "Jun – Aug 2025",
+    image: "",
     summary: "Designed, prototyped, and validated custom machines used for current and next-gen printer manufacturing.",
-    projects: ["linear-rail-tester", "prosthetic-hand"],
+    readMore: "",
   },
   {
     company: "Tesla",
@@ -30,16 +51,18 @@ const EXPERIENCE = [
     role: "Mechanical Engineering Intern",
     team: "Cell Manufacturing – Tabless 4680",
     dates: "Sep 2024 – May 2025",
+    image: "",
     summary: "Designed and implemented numerous production equipment improvements to improve KPIs and address safety incidents.",
-    projects: [],
+    readMore: "",
   },
   {
     company: "Panasonic Energy North America",
     logo: "images/panasonic.png",
     role: "Equipment Engineering Intern",
     dates: "May – Aug 2024",
+    image: "",
     summary: "Designed the mounting structure for a high-speed inline inspection system on the 2170 cell winders.",
-    projects: ["inspection-bracket", "metal-detector"],
+    readMore: "",
   },
 ];
 
