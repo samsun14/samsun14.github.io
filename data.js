@@ -148,20 +148,19 @@ const PROJECTS = [
       { heading: "What", image: "images/projects/wind-tunnel-mesh/1.jpg", points: [
         "3D-printed wind tunnel models start as STL files that approximate curves with flat facets, and people often simplify them to save print time, but there is no clear guideline for when that starts to corrupt drag measurements",
         "Tested a 4.00\" spheroid printed at 8 mesh resolutions (390,240 down to 56 facets, 0.1–6.4 mm max surface deviation), plus a detailed cat model at 3 resolutions to see if the trend carries over to complex shapes",
-      ]},
-      { heading: "How", image: "images/projects/wind-tunnel-mesh/2.jpg", points: [
         "Printed all 11 models in PLA with identical slicer settings and no post-processing, so mesh resolution was the only variable",
       ]},
-      { heading: "How", image: "images/projects/wind-tunnel-mesh/3.jpg", points: [
+      { heading: "How", image: "images/projects/wind-tunnel-mesh/2.jpg", points: [
         "Tested in an ELD 402B low-speed wind tunnel at 21.7 and 30.2 m/s (Re ≈ 1.5×10⁵ and 2.0×10⁵), measuring drag with an LVDT dynamometer and subtracting the mounting-hardware drag from every run",
         "Each model was double-nutted onto a fixed sting so its center sat at the same point in the test section every run; air density was recomputed each session from barometer and thermometer readings",
-        "Owned the data processing and results analysis, and used SolidWorks Flow Simulation as a cross-check",
+        "Owned the data processing and results analysis",
       ]},
-      { heading: "Results", image: "images/projects/wind-tunnel-mesh/4.jpg", points: [
+      { heading: "Results", image: "images/projects/wind-tunnel-mesh/3.jpg", points: [
         "Found a sharp threshold: the drag coefficient fell more than 50% between 0.2 mm and 0.4 mm deviation at both speeds (~0.4 → ~0.07)",
         "Attributed to a roughness-induced early drag crisis: the facets trip the boundary layer to turbulence and delay separation, the same effect as dimples on a golf ball",
       ]},
-      { heading: "Results", image: "images/projects/wind-tunnel-mesh/5.jpg", points: [
+      { heading: "Results", image: "images/projects/wind-tunnel-mesh/4.jpg", points: [
+        "Ran SolidWorks Flow Simulation on every spheroid as a cross-check. Predicted drag fell in the same range as the measurements and showed how the coarse facets reshape the wake",
         "The cat model showed no sharp drop, only a gradual 4.5–8.3% rise in drag coefficient as the mesh got coarser",
         "Takeaway: acceptable STL simplification depends on geometry. Smooth bluff bodies tolerate it up to a sharp cutoff, while feature-rich parts need higher resolution",
       ]},
@@ -183,7 +182,10 @@ const PROJECTS = [
       ]},
       { heading: "How", image: "images/projects/fin-heat-sink/2.jpg", points: [
         "CNC milled all three fin arrays, cutting the 1 mm breaks on a bandsaw",
-        "Added an extra row of fins on each side so the measured middle fins saw the same airflow as interior channels, which was confirmed with CFD",
+      ]},
+      { heading: "How", image: "images/projects/fin-heat-sink/6.jpg", points: [
+        "CFD in SolidWorks Flow Simulation showed the outer fin rows see very different airflow than the interior ones",
+        "Added an extra row of fins on each side so the measured middle fins saw the same airflow as interior channels",
       ]},
       { heading: "How", image: "images/projects/fin-heat-sink/3.jpg", points: [
         "A 40 W pad heater (114 V across 325 Ω) was bonded to the base with thermal paste and housed in a foam insulation block",
