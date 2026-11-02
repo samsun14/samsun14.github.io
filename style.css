@@ -197,7 +197,7 @@ main > .wrap { margin-bottom: 6rem; }
 .detail-text a { color: var(--accent); text-decoration: underline; }
 .detail-row figure { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .detail-row figure img { width: 100%; max-height: 560px; object-fit: contain; margin: 0 auto; }
-.detail-row figure img[src$=".gif"] { width: auto; max-width: 100%; }   /* small animations: don't upscale */
+.detail-row figure video { display: block; width: 100%; max-height: 560px; object-fit: contain; }
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
 .pager a { padding: 1.25rem 1.5rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); font-family: var(--font-head); font-weight: 500; font-size: 1.1rem; transition: border-color 0.2s; }
 .pager a:hover { border-color: var(--accent); }

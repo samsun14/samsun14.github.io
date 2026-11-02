@@ -30,6 +30,11 @@ function renderChrome() {
     </div>`;
 }
 
+// Images, or .mp4 clips that autoplay silently on loop like a gif
+const media = (src, alt) => src.endsWith(".mp4")
+  ? `<video src="${src}" autoplay loop muted playsinline aria-label="${alt}"></video>`
+  : `<img src="${src}" alt="${alt}" loading="lazy">`;
+
 // ---------- Project card (cover image, details revealed on hover) ----------
 function projectCard(p) {
   return `
@@ -137,7 +142,7 @@ function renderProject() {
           ${showHeading ? `<h2>${s.heading}</h2>` : ""}
           <ul>${s.points.map((pt) => `<li>${pt}</li>`).join("")}</ul>
         </div>
-        ${s.image ? `<figure><img src="${s.image}" alt="${p.title} — ${s.heading}" loading="lazy"></figure>` : ""}
+        ${s.image ? `<figure>${media(s.image, `${p.title} — ${s.heading}`)}</figure>` : ""}
       </section>`;
   }).join("");
 

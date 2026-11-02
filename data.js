@@ -18,7 +18,7 @@ const SITE = {
 // Newest first. Each job becomes one entry on the home-page timeline.
 //   logo:     colored logo shown in the row of companies
 //   mark:     small icon inside the timeline dot (defaults to logo)
-//   image:    photo shown in the entry ("" = empty placeholder slot)
+//   image:    photo (or .mp4, plays like a gif) shown in the entry ("" = empty placeholder slot)
 //   readMore: project id from PROJECTS below (e.g. "linear-rail-tester") or any URL ("" = no button)
 const EXPERIENCE = [
   {
@@ -179,11 +179,8 @@ const PROJECTS = [
         "Investigated whether breaking heat sink fins into segments interrupts thermal boundary-layer growth and improves cooling, which matters for high power density systems like EV battery packs and data centers",
         "Compared three Aluminum 6061 fin arrays with the same 2\" square footprint: continuous, 1 mm breaks, and 7.238 mm breaks",
       ]},
-      { heading: "How", image: "images/projects/fin-heat-sink/cam.gif", points: [
+      { heading: "How", image: "images/projects/fin-heat-sink/cam.mp4", points: [
         "Programmed the toolpaths in CAM, then machined all three fin arrays on a CNC mill",
-      ]},
-      { heading: "How", image: "images/projects/fin-heat-sink/2.jpg", points: [
-        "Cut the 1 mm breaks on a bandsaw to finish the segmented arrays",
       ]},
       { heading: "How", image: "images/projects/fin-heat-sink/6.jpg", points: [
         "CFD in SolidWorks Flow Simulation showed the outer fin rows see very different airflow than the interior ones",
